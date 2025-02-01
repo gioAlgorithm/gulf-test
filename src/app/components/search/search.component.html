@@ -2,11 +2,17 @@
   <h1 class="title">Find GitHub repositories instantly!</h1>
   <div class="search-holder">
     <div class="search">
-      <input type="text" [formControl]="searchControl" placeholder="Type a repository name..." />
+      <input 
+        type="text" 
+        [formControl]="searchControl" 
+        placeholder="Type a repository name..." 
+        (input)="onInput()" 
+      />
       <span class="responsive-button">
         <mat-icon class="svg">search</mat-icon>
       </span>
     </div>
   </div>
 </div>
+
 

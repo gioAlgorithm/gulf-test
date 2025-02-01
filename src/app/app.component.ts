@@ -9,9 +9,8 @@ import { ReactiveFormsModule } from '@angular/forms';
   imports: [RouterOutlet, HeaderComponent, MatIconModule, ReactiveFormsModule],
   template: `
     <app-header />
-    <main>
-      <router-outlet />
-    </main>
+
+    <router-outlet />
   `,
   styles: [],
 })

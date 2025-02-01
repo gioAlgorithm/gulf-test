@@ -1,0 +1,15 @@
+<a [routerLink]="['/details', repo.full_name]" class="card">
+  <div
+    class="color-changer"
+    [ngStyle]="{ 'background-color': getRandomColor() }"
+  ></div>
+  <img
+    [src]="repo.owner.avatar_url"
+    [alt]="repo.owner.login + ' avatar'"
+    class="avatar"
+  />
+  <div class="card-content">
+    <h2 class="repo-name">{{ truncateText(repo.full_name, 20) }}</h2>
+    <p class="repo-description">{{ truncateText(repo.description, 120) }}</p>
+  </div>
+</a>

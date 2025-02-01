@@ -1,6 +1,12 @@
 <main class="home-main">
   <div class="wrapper">
-    <app-search (searchQuery)="onSearch($event)"></app-search>
-    <app-results [repositories]="repositories"></app-results>
+    <app-search (searchQuery)="onSearch($event)" (typing)="onTyping($event)">
+    </app-search>
+
+    <app-results
+      [repositories]="repositories"
+      [loading]="loading"
+      [noResultsMessage]="noResultsMessage"
+    ></app-results>
   </div>
 </main>
