@@ -1,7 +1,7 @@
 <a [routerLink]="['/details', repo.full_name]" class="card">
   <div
     class="color-changer"
-    [ngStyle]="{ 'background-color': getRandomColor() }"
+    [ngStyle]="{ 'background-color': backgroundColor }"
   ></div>
   <img
     [src]="repo.owner.avatar_url"

@@ -1,4 +1,4 @@
-import { Component, Input } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { RouterModule } from '@angular/router';
 import { Card } from '../../models/card.type';
 import { NgStyle } from '@angular/common';
@@ -9,10 +9,16 @@ import { NgStyle } from '@angular/common';
   templateUrl: './card.component.html',
   styleUrl: './card.component.scss',
 })
-export class CardComponent {
+export class CardComponent implements OnInit {
   @Input() repo!: Card;
+  backgroundColor: string = ''; // Store the random color
 
-  // rendering random color for the cards background div
+  ngOnInit() {
+    // Generate the random color only once when the component initializes
+    this.backgroundColor = this.getRandomColor();
+  }
+
+  // Rendering random color for the cards background div
   getRandomColor(): string {
     const letters = '0123456789ABCDEF';
     let color = '#';
@@ -27,3 +33,4 @@ export class CardComponent {
     return text && text.length > limit ? text.slice(0, limit - 1) + '…' : text;
   }
 }
+

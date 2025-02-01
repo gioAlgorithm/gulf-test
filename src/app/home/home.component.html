@@ -1,6 +1,10 @@
 <main class="home-main">
   <div class="wrapper">
-    <app-search (searchQuery)="onSearch($event)" (typing)="onTyping($event)">
+    <app-search
+      (searchQuery)="onSearch($event)"
+      (typing)="onTyping($event)"
+      [searchQueryParam]="query"
+    >
     </app-search>
 
     <app-results

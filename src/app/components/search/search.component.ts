@@ -1,4 +1,4 @@
-import { Component, EventEmitter, Output } from '@angular/core';
+import { Component, EventEmitter, Output, Input } from '@angular/core';
 import { FormControl, ReactiveFormsModule } from '@angular/forms';
 import { debounceTime } from 'rxjs/operators';
 import { MatIconModule } from '@angular/material/icon';
@@ -13,7 +13,8 @@ import { RouterModule } from '@angular/router';
   styleUrl: './search.component.scss',
 })
 export class SearchComponent {
-  searchControl = new FormControl('');
+  @Input() searchQueryParam: string = ''; // Input for pre-filling the search field
+  searchControl = new FormControl(this.searchQueryParam); // Initialize with query param
 
   @Output() searchQuery = new EventEmitter<string>();
   @Output() typing = new EventEmitter<boolean>(); // Emit typing state
@@ -33,5 +34,6 @@ export class SearchComponent {
     this.typing.emit(true); // Trigger loading when typing starts
   }
 }
+
 
 
