@@ -18,7 +18,7 @@
   &:hover {
     box-shadow: rgba(0, 0, 0, 0.05) 0px 6px 24px 0px,
       rgba(0, 0, 0, 0.08) 0px 0px 0px 1px;
-      background-color: white;
+    background-color: white;
   }
 
   .color-changer {
@@ -36,14 +36,105 @@
     margin-bottom: 1rem;
     z-index: 10;
   }
-  
+
   .repo-name {
     color: rgb(0, 0, 0, 0.8);
     margin-bottom: 0.5rem;
     font-weight: 500;
   }
-  .repo-description{
+  .repo-description {
     font-size: 18px;
     color: rgb(0, 0, 0, 0.6);
+  }
+}
+// table styles
+.table {
+  position: relative;
+  padding: 1rem;
+  color: black;
+  width: 100%;
+  height: 200px;
+  box-shadow: rgba(0, 0, 0, 0.1) 0px 1px 3px 0px,
+    rgba(0, 0, 0, 0.06) 0px 1px 2px 0px;
+  border-radius: 0.325rem;
+  display: flex;
+  align-items: center;
+  transition: border 0.5s;
+  overflow: hidden;
+  background-color: rgb(250, 250, 250);
+
+  &:hover {
+    box-shadow: rgba(0, 0, 0, 0.05) 0px 6px 24px 0px,
+      rgba(0, 0, 0, 0.08) 0px 0px 0px 1px;
+    background-color: white;
+  }
+
+  .color-changer {
+    position: absolute;
+    width: 220px;
+    height: 100%;
+    left: 0;
+    top: 0;
+  }
+  .avatar {
+    width: 180px;
+    height: 180px;
+    border-radius: 50%;
+    z-index: 10;
+  }
+  .card-content{
+    z-index: 9;
+    margin-left: 40px;
+    height: 100%;
+  }
+
+  .repo-name {
+    font-size: 2rem;
+    color: rgb(0, 0, 0, 0.8);
+    margin-bottom: 0.5rem;
+    font-weight: 500;
+  }
+  .repo-description {
+    font-size: 1.4rem;
+    color: rgb(0, 0, 0, 0.6);
+    max-width: 99%;
+  }
+}
+@media(max-width: 850px){
+  .table{
+    height: 150px;
+    
+    .color-changer{
+      width: 175px;
+    }
+    .avatar{
+      width: 140px;
+      height: 140px;
+    }
+    .repo-name{
+      font-size: 1.7rem;
+    }
+    .repo-description{
+      font-size: 1.1rem;
+    }
+  }
+}
+@media(max-width: 525px){
+  .table{
+    height: 120px;
+    
+    .color-changer{
+      width: 145px;
+    }
+    .avatar{
+      width: 100px;
+      height: 100px;
+    }
+    .repo-name{
+      font-size: 1.4rem;
+    }
+    .repo-description{
+      font-size: 1rem;
+    }
   }
 }

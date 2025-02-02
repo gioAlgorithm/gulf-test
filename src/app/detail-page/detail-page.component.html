@@ -1,6 +1,82 @@
 <main class="detail-main">
   <div class="wrapper">
-    <p>detail-page works!</p>
+    <ng-container *ngIf="repositoryDetails$ | async as repositoryDetails">
+      <div class="detail-content">
+        <!-- Repository Header -->
+        <div class="repo-header">
+          <div class="repo-owner">
+            <img
+              [src]="repositoryDetails.owner.avatar_url"
+              alt="Owner Avatar"
+              class="owner-avatar"
+            />
+            <a
+              [href]="repositoryDetails.owner.html_url"
+              target="_blank"
+              class="owner-link"
+            >
+              <span class="owner-login">{{
+                repositoryDetails.owner.login
+              }}</span>
+            </a>
+          </div>
+        </div>
+        <div class="repo-content">
+          <h1 class="repo-title">{{ repositoryDetails.full_name }}</h1>
+          <!-- Description -->
+          <p class="repo-description">
+            {{ repositoryDetails.description || "No description provided" }}
+          </p>
+
+          <!-- Repository Stats -->
+          <div class="repo-stats">
+            <h3>{{ repositoryDetails.owner.login }}'s Github Stats</h3>
+            <p>
+              <mat-icon class="svg">translate</mat-icon
+              ><strong>Language</strong> {{ repositoryDetails.language }}
+            </p>
+            <p>
+              <mat-icon class="svg">account_tree</mat-icon
+              ><strong>Forks</strong> {{ repositoryDetails.forks_count }}
+            </p>
+            <p>
+              <mat-icon class="svg">star</mat-icon> <strong>Stars</strong>
+              {{ repositoryDetails.stargazers_count }}
+            </p>
+            <p>
+              <mat-icon class="svg">visibility</mat-icon>
+              <strong>Watchers</strong> {{ repositoryDetails.watchers_count }}
+            </p>
+          </div>
+
+          <!-- Created & Updated Dates -->
+          <div class="repo-dates">
+            <p>
+              <strong>Created At</strong>
+              {{ repositoryDetails.created_at | date }}
+            </p>
+            <p>
+              <strong>Updated At</strong>
+              {{ repositoryDetails.updated_at | date }}
+            </p>
+          </div>
+
+          <!-- License Information -->
+          <p class="repo-license">
+            <strong>License</strong>
+            {{ repositoryDetails.license.name || "No license" }}
+          </p>
+
+          <!-- Link to GitHub -->
+          <a
+            [href]="repositoryDetails.html_url"
+            target="_blank"
+            class="repo-link"
+          >
+            <span class="repo-link-holder"> View on GitHub </span>
+          </a>
+        </div>
+      </div>
+    </ng-container>
   </div>
 </main>
-

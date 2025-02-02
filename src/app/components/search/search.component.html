@@ -2,17 +2,31 @@
   <h1 class="title">Find GitHub repositories instantly!</h1>
   <div class="search-holder">
     <div class="search">
-      <input 
-        type="text" 
-        [formControl]="searchControl" 
-        placeholder="Type a repository name..." 
-        (input)="onInput()" 
+      <input
+        type="text"
+        [formControl]="searchControl"
+        placeholder="Type a repository name..."
+        (input)="onInput()"
       />
       <span class="responsive-button">
         <mat-icon class="svg">search</mat-icon>
       </span>
     </div>
+    <div class="switch-holder">
+      <span
+        class="card-switch"
+        [ngClass]="{ active: cardActive }"
+        (click)="toggleView(true)"
+      >
+        <mat-icon class="svg-style">dashboard</mat-icon>
+      </span>
+      <span
+        class="table-switch"
+        [ngClass]="{ active: !cardActive }"
+        (click)="toggleView(false)"
+      >
+        <mat-icon class="svg-style">view_agenda</mat-icon>
+      </span>
+    </div>
   </div>
 </div>
-
-

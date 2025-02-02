@@ -4,6 +4,8 @@
       (searchQuery)="onSearch($event)"
       (typing)="onTyping($event)"
       [searchQueryParam]="query"
+      [cardActive]="cardActive"
+      (viewChange)="toggleView($event)"
     >
     </app-search>
 
@@ -11,6 +13,7 @@
       [repositories]="repositories"
       [loading]="loading"
       [noResultsMessage]="noResultsMessage"
+      [cardActive]="cardActive"
     ></app-results>
   </div>
 </main>

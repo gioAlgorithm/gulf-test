@@ -2,16 +2,18 @@ import { Component, Input, OnInit } from '@angular/core';
 import { RouterModule } from '@angular/router';
 import { Card } from '../../models/card.type';
 import { NgStyle } from '@angular/common';
+import { NgClass } from '@angular/common';
 
 @Component({
   selector: 'app-card',
-  imports: [RouterModule, NgStyle],
+  imports: [RouterModule, NgStyle, NgClass],
   templateUrl: './card.component.html',
   styleUrl: './card.component.scss',
 })
 export class CardComponent implements OnInit {
   @Input() repo!: Card;
   backgroundColor: string = ''; // Store the random color
+  @Input() cardActive!: boolean; // to switch the card style
 
   ngOnInit() {
     // Generate the random color only once when the component initializes
@@ -33,4 +35,3 @@ export class CardComponent implements OnInit {
     return text && text.length > limit ? text.slice(0, limit - 1) + '…' : text;
   }
 }
-

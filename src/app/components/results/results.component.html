@@ -7,9 +7,14 @@
   <!-- Display No Results or Message -->
   <ng-container *ngIf="!loading && repositories.length; else noResults">
     <h2 class="result-title">Search Results:</h2>
-    <ul class="result-container">
+    <ul
+      [ngClass]="{
+        'result-container': cardActive,
+        'table-container': !cardActive
+      }"
+    >
       <li *ngFor="let repo of repositories">
-        <app-card [repo]="repo"></app-card>
+        <app-card [repo]="repo" [cardActive]="cardActive"></app-card>
       </li>
     </ul>
   </ng-container>

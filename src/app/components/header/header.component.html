@@ -1,9 +1,12 @@
 <header>
   <nav>
-    <span class="logo"><strong>GULF</strong>TEST</span>
-    <ul>
-      <li routerLink="/">Home</li>
-      <li routerLink="/details">details</li>
-    </ul>
+    <span class="logo" routerLink="/"><strong>GULF</strong>TEST</span>
+    
+    <a *ngIf="showGoBackButton" routerLink="/" class="go-back">
+      <mat-icon>chevron_left</mat-icon>
+      <p>Go Back</p>
+    </a>
   </nav>
 </header>
+
+

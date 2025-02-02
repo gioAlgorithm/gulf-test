@@ -1,5 +1,5 @@
 import { Component, Input } from '@angular/core';
-import { CommonModule, NgIf, NgFor } from '@angular/common';
+import { CommonModule, NgIf, NgClass } from '@angular/common';
 import { RouterModule } from '@angular/router';
 import { Card } from '../../models/card.type';
 import { CardComponent } from '../card/card.component';
@@ -11,7 +11,7 @@ import { LoadingSkeletonComponent } from '../../loading-skeleton/loading-skeleto
   imports: [
     CommonModule,
     NgIf,
-    NgFor,
+    NgClass,
     RouterModule,
     CardComponent,
     LoadingSkeletonComponent,
@@ -23,4 +23,5 @@ export class ResultsComponent {
   @Input() repositories: Card[] = [];
   @Input() loading: boolean = false; // Add loading input
   @Input() noResultsMessage: string = ''; // Accept the message input
+  @Input() cardActive!: boolean; // to switch the style of card
 }

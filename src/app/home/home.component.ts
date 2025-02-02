@@ -10,13 +10,15 @@ import { ActivatedRoute, Router } from '@angular/router'; // Import Router and A
   imports: [SearchComponent, ResultsComponent],
   templateUrl: './home.component.html',
   styleUrls: ['./home.component.scss'],
-  providers: [GithubService]
+  providers: [GithubService],
 })
 export class HomeComponent implements OnInit {
   repositories: any[] = [];
   loading = false;
-  noResultsMessage: string = 'You haven\'t searched for anything yet. Please enter a query!';
+  noResultsMessage: string =
+    "You haven't searched for anything yet. Please enter a query!";
   query: string = '';
+  cardActive = true; //default view is card
 
   constructor(
     private githubService: GithubService,
@@ -26,7 +28,7 @@ export class HomeComponent implements OnInit {
 
   ngOnInit(): void {
     // Check if there's a query parameter in the URL
-    this.activatedRoute.queryParams.subscribe(params => {
+    this.activatedRoute.queryParams.subscribe((params) => {
       this.query = params['query'] || ''; // Get the query parameter from the URL
       if (this.query) {
         this.onSearch(this.query); // Trigger search if query exists
@@ -51,7 +53,7 @@ export class HomeComponent implements OnInit {
       queryParamsHandling: 'merge', // Merge with existing query params if any
     });
 
-    this.githubService.searchRepositories(query).subscribe(results => {
+    this.githubService.searchRepositories(query).subscribe((results) => {
       this.repositories = results;
       this.loading = false;
       if (this.repositories.length === 0) {
@@ -60,12 +62,15 @@ export class HomeComponent implements OnInit {
     });
   }
 
+  // whenever user is typing the loading will show up
   onTyping(isTyping: boolean) {
     this.loading = isTyping;
   }
+
+  // for the card view to change the styles
+  toggleView(isCardActive: boolean) {
+    console.log('Button clicked:', isCardActive); // Debug log
+    this.cardActive = isCardActive;
+    console.log(this.cardActive ? 'Card view active' : 'Table view active');
+  }
 }
-
-
-
-
-

@@ -19,6 +19,10 @@ export class SearchComponent {
   @Output() searchQuery = new EventEmitter<string>();
   @Output() typing = new EventEmitter<boolean>(); // Emit typing state
 
+  // for card style switch
+  @Input() cardActive!: boolean;
+  @Output() viewChange = new EventEmitter<boolean>();
+
   constructor() {
     this.searchControl.valueChanges
       .pipe(debounceTime(1000))
@@ -32,6 +36,11 @@ export class SearchComponent {
 
   onInput() {
     this.typing.emit(true); // Trigger loading when typing starts
+  }
+
+  // toggle style
+  toggleView(isCardActive: boolean) {
+    this.viewChange.emit(isCardActive);
   }
 }
 

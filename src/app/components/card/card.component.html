@@ -1,4 +1,7 @@
-<a [routerLink]="['/details', repo.full_name]" class="card">
+<a
+  [routerLink]="['/details', repo.owner.login, repo.name]"
+  [ngClass]="{ card: cardActive, table: !cardActive }"
+>
   <div
     class="color-changer"
     [ngStyle]="{ 'background-color': backgroundColor }"

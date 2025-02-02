@@ -7,6 +7,14 @@
   gap: 15px;
   margin-bottom: 100px;
 }
+.table-container {
+  width: 100%;
+  padding: 0rem 1rem;
+  display: grid;
+  grid-template-columns: 1fr; /* One card per row */
+  gap: 15px;
+  margin-bottom: 100px;
+}
 .result-title {
   margin-top: 1rem;
   margin-bottom: 1rem;
@@ -23,4 +31,12 @@
   display: flex;
   align-items: center;
   justify-content: center;
+}
+@media (max-width: 525px) {
+  .result-container {
+    padding: 0px;
+  }
+  .table-container{
+    padding: 0px;
+  }
 }
